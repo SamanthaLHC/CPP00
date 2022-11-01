@@ -6,7 +6,7 @@
 #    By: samantha <samantha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/01 10:32:07 by samantha         ###   ########.fr        #
+#    Updated: 2022/11/01 10:35:27 by samantha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,11 @@ clean:
 
 fclean: clean
 	rm -rf ${NAME}
-	rm -rf ${OBJ}
 
 re : fclean
 	make all
 
-vgrind: ${NAME}
+grind: ${NAME}
 		valgrind ./$(NAME)
 
 test: $(NAME)
