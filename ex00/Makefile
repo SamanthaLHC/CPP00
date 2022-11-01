@@ -3,52 +3,42 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
+#    By: samantha <samantha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/10/25 12:23:46 by sle-huec         ###   ########.fr        #
+#    Updated: 2022/11/01 10:32:07 by samantha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = philo
+NAME = megaphone
 
-CC = cc
-CFLAGS = -MMD -Wall -Wextra -Werror -g3 -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -g3 -std=c++98
 
+SRC = ./megaphone.cpp
 
-OBJ_PATH = ./objs/
-
-OBJ = $(SRCS:$(SRCS_PATH)%.c=$(OBJ_PATH)%.o)
-DEP = $(SRCS:$(SRCS_PATH)%.c=$(OBJ_PATH)%.d)
+OBJ = $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
 ${NAME}: ${OBJ}
-	${CC} ${CFLAGS} ${OBJ} -o ${NAME}
-
-
-$(OBJ_PATH)%.o: $(SRCS_PATH)%.c
-	mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+	${CXX} ${CXXFLAGS} ${OBJ} -o ${NAME}
 
 clean:
-	rm -rf ${OBJ} ${DEPS}
+	rm -rf ${OBJ}
 
 fclean: clean
 	rm -rf ${NAME}
-	rm -rf ${OBJ_PATH}
+	rm -rf ${OBJ}
 
 re : fclean
-	make -C.
 	make all
 
 vgrind: ${NAME}
-		valgrind ./
+		valgrind ./$(NAME)
 
 test: $(NAME)
-	./$(NAME) 
+	./$(NAME)
 	
 
-.PHONY: clean fclean re grind test testp
-
--include ${DEPS}
+.PHONY: clean fclean re grind test
