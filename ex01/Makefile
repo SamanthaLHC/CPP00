@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: samantha <samantha@student.42.fr>          +#+  +:+       +#+         #
+#    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/01 15:54:18 by samantha         ###   ########.fr        #
+#    Updated: 2022/11/02 14:08:50 by sle-huec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,14 @@ CXX = c++
 CXXFLAGS = -MMD -Wall -Wextra -Werror -g3 -std=c++98
 
 
-INCLUDE = -I./
+INCLUDE = -I./includes
 
 SRCS_PATH = ./srcs/
 OBJ_PATH = ./objs/
 
 SRCS = $(addprefix $(SRCS_PATH), \
-		phonebook.cpp)
+		PhoneBook.cpp \
+		main.cpp)
 
 OBJS	= $(SRCS:$(SRCS_PATH)%.cpp=$(OBJ_PATH)%.o)
 DEPS	= $(SRCS:$(SRCS_PATH)%.cpp=$(OBJ_PATH)%.d)

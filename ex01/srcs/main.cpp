@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/01 15:50:11 by samantha         ###   ########.fr       */
+/*   Created: 2022/11/02 14:02:02 by sle-huec          #+#    #+#             */
+/*   Updated: 2022/11/02 14:02:47 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main()
+#include "PhoneBook.hpp"
+
+int	main()
 {
- return 0;
+	PhoneBook repertoire;
+	
+	return 0;
 }
