@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 12:06:08 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/01 14:23:12 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:59:33 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,8 @@ int	main(int ac, char **av)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return 1;
 	}
-	upp_str(av[1]);
-	for (int i = 2; i < ac; i++)
-	{
-		std::cout << " ";
+	for (int i = 1; i < ac; i++)
 		upp_str(av[i]);
-	}
 	std::cout << std::endl;
 	return 0;
 }
