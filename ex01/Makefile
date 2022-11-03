@@ -6,7 +6,7 @@
 #    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/02 14:08:50 by sle-huec         ###   ########.fr        #
+#    Updated: 2022/11/03 13:20:22 by sle-huec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ OBJ_PATH = ./objs/
 
 SRCS = $(addprefix $(SRCS_PATH), \
 		PhoneBook.cpp \
+		Contact.cpp \
 		main.cpp)
 
 OBJS	= $(SRCS:$(SRCS_PATH)%.cpp=$(OBJ_PATH)%.o)

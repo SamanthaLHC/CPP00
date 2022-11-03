@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/02 15:51:44 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/03 13:22:59 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,7 @@ PhoneBook::PhoneBook(void){
 	return;
 }
 
-// void	PhoneBook::get_info_contact() const {
-	
-// 	// here input user ? 
-// }
+
 
 PhoneBook::~PhoneBook(void){
 	std::cout << "finito" << std::endl;
