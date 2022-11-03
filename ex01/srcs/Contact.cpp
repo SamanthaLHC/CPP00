@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:19:10 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/03 16:35:12 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:47:54 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Contact::~Contact(void){
 	return;
 }
 
-std::string Contact::get_name(void) const
+std::string Contact::get_name(void)
 {
 	std::cout << "Enter your name: " << std::endl;
 	std::getline(std::cin, _name);

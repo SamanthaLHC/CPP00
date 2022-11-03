@@ -6,13 +6,13 @@
 #    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/03 13:20:22 by sle-huec         ###   ########.fr        #
+#    Updated: 2022/11/03 16:36:41 by sle-huec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-CXX = c++
+CXX = g++
 CXXFLAGS = -MMD -Wall -Wextra -Werror -g3 -std=c++98
 
 
