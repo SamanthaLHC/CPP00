@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:50:52 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/04 17:40:16 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:55:11 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class PhoneBook {
 public:
 
 	PhoneBook(void);
+	// here initialiser les attribut
 	~PhoneBook();
 
 	void set_handler_input(void);
@@ -42,6 +43,7 @@ public:
 private:
 
 	Contact contacts_in_rep[8];
+	int	count_user;
 	std::string _user_input_browse;
 };
 

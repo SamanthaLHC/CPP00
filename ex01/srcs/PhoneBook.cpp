@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/04 17:38:45 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:59:23 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,16 @@ void PhoneBook::identify_user_choice()
 {
 	if (this->_user_input_browse == "ADD")
 	{
-		Contact contact;
-		contact.set_name();
-		contact.set_lastname();
-		contact.set_surname();
-		contact.set_phone_number();
-		contact.set_darkest_secret();
+		if (this->count_user == 8)
+			this->count_user = 0;
+		this->count_user++;
+		
+		Contact contacts_in_rep[this->count_user];
+		contacts_in_rep[this->count_user].set_name();
+		contacts_in_rep[this->count_user].set_lastname();
+		contacts_in_rep[this->count_user].set_surname();
+		contacts_in_rep[this->count_user].set_phone_number();
+		contacts_in_rep[this->count_user].set_darkest_secret();
 	}
 	else if(this->_user_input_browse == "SEARCH")
 		std::cout << "SEARCH entered" << std::endl;
