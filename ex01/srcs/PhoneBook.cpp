@@ -6,32 +6,24 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/03 13:22:59 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/04 14:39:47 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void){
-
-	//initialiser les var grace au mot clé "this"
-	//un ptr qui pointe sur l'instance actuelle
-	//this->var = 0;
-	// this permet d'appeler une fonction membre de l instance courante
-	// pour constituer le repertoire, voir l initialization list pour changer
-	// les donnees des contact
-	//class(int const n)
-	// void fonction(void)const; une fonction membre qui ne modifie pas 
-	// l'instance courante de notre classe, il faut la déclarer en const
-	
-	std::cout << "pouet pouet" << std::endl;
+PhoneBook::PhoneBook(void){	
 	return;
 }
 
-
-
 PhoneBook::~PhoneBook(void){
-	std::cout << "finito" << std::endl;
+	return;
+}
+
+std::string PhoneBook::set_handler_input(void)
+{
+	std::cout << "Contact handler: you can either type ADD, SEARCH or EXIT" << std::endl;
+	std::getline(std::cin, _);
 	return;
 }

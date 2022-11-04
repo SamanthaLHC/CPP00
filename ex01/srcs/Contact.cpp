@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:19:10 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/03 21:02:30 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/04 14:46:39 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,63 +25,77 @@ Contact::~Contact(void){
 	return;
 }
 
+//==============================================================================
+//           name
+//==============================================================================
+
 std::string Contact::get_name(void)const
 {
 	return this->_name;
 }
 
-std::string Contact::set_name(void)
+void Contact::set_name(void)
 {
 	std::cout << "Enter your name: " << std::endl;
 	std::getline(std::cin, _name);
-	return _name;
 }
+
+//==============================================================================
+//           lastname
+//==============================================================================
 
 std::string Contact::get_lastname(void)const
 {
 	return this->_lastname;
 }
 
-std::string Contact::set_lastname(void)
+void Contact::set_lastname(void)
 {
 	std::cout << "Enter your lastname: " << std::endl;
 	std::getline(std::cin, _lastname);
-	return _lastname;
 }
 
+//==============================================================================
+//           surname
+//==============================================================================
 
 std::string Contact::get_surname(void)const
 {
 	return this->_surname;
 }
 
-std::string Contact::set_surname(void)
+void Contact::set_surname(void)
 {
 	std::cout << "Enter your surname: " << std::endl;
 	std::getline(std::cin, _surname);
-	return _surname;
 }
+
+//==============================================================================
+//           phone_number
+//==============================================================================
 
 std::string Contact::get_phone_number(void)const
 {
 	return this->_phone_number;
 }
 
-std::string Contact::set_phone_number(void)
+void Contact::set_phone_number(void)
 {
 	std::cout << "Enter your phone number: " << std::endl;
 	std::getline(std::cin, _phone_number);
-	return _phone_number;
 }
+
+//==============================================================================
+//           darkest_secret
+//==============================================================================
 
 std::string Contact::get_darkest_secret(void)const
 {
 	return this->_dark_secret;
 }
 
-std::string Contact::set_darkest_secret(void)
+void Contact::set_darkest_secret(void)
 {
 	std::cout << "What is your darkest secret? " << std::endl;
 	std::getline(std::cin, _dark_secret);
-	return _dark_secret;
 }
