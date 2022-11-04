@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:50:52 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/04 16:29:59 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:40:16 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ public:
 	void set_exit(void);
 	std::string get_exit(void)const;
 
+	void identify_user_choice();
+	
 private:
 
 	Contact contacts_in_rep[8];
