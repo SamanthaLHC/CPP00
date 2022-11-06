@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:19:10 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/04 14:46:39 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/06 21:33:04 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 // qui va avec linput et d'apppeler le bon setter? 
 
 Contact::Contact(void){
+
+	//init var voir video thor initialize
 	return;
 }
 

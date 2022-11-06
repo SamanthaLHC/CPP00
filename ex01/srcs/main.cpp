@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:02:02 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/04 17:42:36 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/06 21:49:42 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main()
 	PhoneBook repertoire;
 
 	repertoire.set_handler_input();
-	repertoire.identify_user_choice();
+	repertoire.exec_user_cmd();
 
 
 	
