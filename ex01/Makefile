@@ -6,14 +6,14 @@
 #    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/03 18:01:36 by sle-huec         ###   ########.fr        #
+#    Updated: 2022/11/07 16:59:01 by sle-huec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
 CXX = c++
-CXXFLAGS = -MMD -Wall -Wextra -Werror -g3 -std=c++98
+CXXFLAGS = -MMD -g3 -Wall -Wextra -Werror -std=c++98
 
 
 INCLUDE = -I./includes
@@ -50,21 +50,9 @@ re: fclean
 	make all
 
 grind: ${NAME}
-		valgrind ./$(NAME) "je teste valgrind"
+		valgrind ./$(NAME)
 
 test: $(NAME)
-	./$(NAME) "123 pouet pouet"
-	
-test1: $(NAME)
-	./$(NAME) "Je TEste une chaine AVec DES MAj"
-	
-test2: $(NAME)
-	./$(NAME) "je teste une chaine av_*c des sy_mb+les"
-
-test3: $(NAME)
-	./$(NAME) "je" "teste plusieurs" "arg"
-	
-test4: $(NAME)
 	./$(NAME)
 
 .PHONY: clean fclean re grind test

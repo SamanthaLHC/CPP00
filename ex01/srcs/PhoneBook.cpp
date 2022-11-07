@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/07 14:24:35 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/07 17:00:08 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include "PhoneBook.hpp"
 #include <stdlib.h>
 
-PhoneBook::PhoneBook(void){
-	//here init var (voir videos THor)
+PhoneBook::PhoneBook(void): count_user(0), _user_cmd(""){
 	return;
 }
 

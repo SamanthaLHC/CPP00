@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:19:10 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/07 15:54:07 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:51:06 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 // faire une methode qui prend une string en entrée et d afficher le message 
 // qui va avec linput et d'apppeler le bon setter? 
 
-Contact::Contact(void){	
+Contact::Contact(void) : _name(""), _lastname(""), _surname(""), _phone_number(""),
+						_dark_secret("") {
 	return;
 }
 
