@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/07 17:00:08 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/07 17:42:07 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "PhoneBook.hpp"
 #include <stdlib.h>
 
-PhoneBook::PhoneBook(void): count_user(0), _user_cmd(""){
+PhoneBook::PhoneBook(void): _count_user(0), _user_cmd(""){
 	return;
 }
 
@@ -43,15 +43,15 @@ void PhoneBook::set_handler_input(void)
 
 void PhoneBook::cmd_add()
 {
-		if (this->count_user == 7)
-			this->count_user = 0;
-		this->count_user++;
+		if (this->_count_user == 7)
+			this->_count_user = 0;
+		this->_count_user++;
 
-		this->contacts_in_rep[this->count_user].set_name();
-		this->contacts_in_rep[this->count_user].set_lastname();
-		this->contacts_in_rep[this->count_user].set_surname();
-		this->contacts_in_rep[this->count_user].set_phone_number();
-		this->contacts_in_rep[this->count_user].set_darkest_secret();
+		this->_contacts_in_rep[this->_count_user].set_name();
+		this->_contacts_in_rep[this->_count_user].set_lastname();
+		this->_contacts_in_rep[this->_count_user].set_surname();
+		this->_contacts_in_rep[this->_count_user].set_phone_number();
+		this->_contacts_in_rep[this->_count_user].set_darkest_secret();
 }
 
 //==============================================================================
@@ -64,7 +64,7 @@ void PhoneBook::exec_user_cmd()
 		this->cmd_add();
 	else if(this->_user_cmd == "SEARCH")
 		std::cout << "SEARCH entered" << std::endl;
-	else if (this->_user_cmd == "EXIT")
+	else if (this->_user_cmd == "EXIT" || std::cin.eof() == true)
 	{
 		std::cout << "All contacts will be lost." << std::endl;		
 		exit(0);

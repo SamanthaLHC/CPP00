@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:50:52 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/07 11:30:56 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/07 17:15:43 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ public:
 
 private:
 
-	Contact contacts_in_rep[8];
-	int	count_user;
+	Contact _contacts_in_rep[8];
+	int	_count_user;
+	bool _ctrl_d;
 	std::string _user_cmd;
+	
 	void cmd_add();
 	void search_cmd();
 	void exit_cmd();

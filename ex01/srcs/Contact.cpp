@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:19:10 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/07 16:51:06 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/07 17:50:01 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ std::string Contact::get_name(void)const
 
 void Contact::set_name(void)
 {
-	while (this->_name.length() == 0)
+	while (this->_name.length() == 0 && std::cin.eof() == false)
 	{
 		std::cout << "Enter your name: " << std::endl;		
 		std::getline(std::cin, _name);
@@ -55,7 +55,7 @@ std::string Contact::get_lastname(void)const
 
 void Contact::set_lastname(void)
 {
-	while (this->_lastname.length() == 0)
+	while (this->_lastname.length() == 0 && std::cin.eof() == false)
 	{
 		std::cout << "Enter your lastname: " << std::endl;
 		std::getline(std::cin, _lastname);
@@ -73,7 +73,7 @@ std::string Contact::get_surname(void)const
 
 void Contact::set_surname(void)
 {
-	while (this->_surname.length() == 0)
+	while (this->_surname.length() == 0 && std::cin.eof() == false)
 	{
 		std::cout << "Enter your surname: " << std::endl;
 		std::getline(std::cin, _surname);
@@ -91,7 +91,7 @@ std::string Contact::get_phone_number(void)const
 
 void Contact::set_phone_number(void)
 {
-	while (this->_phone_number.length() == 0)
+	while (this->_phone_number.length() == 0 && std::cin.eof() == false)
 	{	
 		std::cout << "Enter your phone number: " << std::endl;
 		std::getline(std::cin, _phone_number);
@@ -109,7 +109,7 @@ std::string Contact::get_darkest_secret(void)const
 
 void Contact::set_darkest_secret(void)
 {
-	while (this->_dark_secret.length() == 0)
+	while (this->_dark_secret.length() == 0 && std::cin.eof() == false)
 	{
 		std::cout << "What is your darkest secret? " << std::endl;
 		std::getline(std::cin, _dark_secret);
