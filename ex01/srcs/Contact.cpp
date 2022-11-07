@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:19:10 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/06 21:33:04 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:54:07 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 // faire une methode qui prend une string en entrée et d afficher le message 
 // qui va avec linput et d'apppeler le bon setter? 
 
-Contact::Contact(void){
-
-	//init var voir video thor initialize
+Contact::Contact(void){	
 	return;
 }
 
@@ -38,8 +36,11 @@ std::string Contact::get_name(void)const
 
 void Contact::set_name(void)
 {
-	std::cout << "Enter your name: " << std::endl;
-	std::getline(std::cin, _name);
+	while (this->_name.length() == 0)
+	{
+		std::cout << "Enter your name: " << std::endl;		
+		std::getline(std::cin, _name);
+	}
 }
 
 //==============================================================================
@@ -53,8 +54,11 @@ std::string Contact::get_lastname(void)const
 
 void Contact::set_lastname(void)
 {
-	std::cout << "Enter your lastname: " << std::endl;
-	std::getline(std::cin, _lastname);
+	while (this->_lastname.length() == 0)
+	{
+		std::cout << "Enter your lastname: " << std::endl;
+		std::getline(std::cin, _lastname);
+	}
 }
 
 //==============================================================================
@@ -68,8 +72,11 @@ std::string Contact::get_surname(void)const
 
 void Contact::set_surname(void)
 {
-	std::cout << "Enter your surname: " << std::endl;
-	std::getline(std::cin, _surname);
+	while (this->_surname.length() == 0)
+	{
+		std::cout << "Enter your surname: " << std::endl;
+		std::getline(std::cin, _surname);
+	}
 }
 
 //==============================================================================
@@ -83,8 +90,11 @@ std::string Contact::get_phone_number(void)const
 
 void Contact::set_phone_number(void)
 {
-	std::cout << "Enter your phone number: " << std::endl;
-	std::getline(std::cin, _phone_number);
+	while (this->_phone_number.length() == 0)
+	{	
+		std::cout << "Enter your phone number: " << std::endl;
+		std::getline(std::cin, _phone_number);
+	}
 }
 
 //==============================================================================
@@ -98,6 +108,9 @@ std::string Contact::get_darkest_secret(void)const
 
 void Contact::set_darkest_secret(void)
 {
-	std::cout << "What is your darkest secret? " << std::endl;
-	std::getline(std::cin, _dark_secret);
+	while (this->_dark_secret.length() == 0)
+	{
+		std::cout << "What is your darkest secret? " << std::endl;
+		std::getline(std::cin, _dark_secret);
+	}
 }
