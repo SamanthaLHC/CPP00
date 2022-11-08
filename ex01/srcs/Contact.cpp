@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:19:10 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/07 17:50:01 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/08 13:12:10 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void Contact::set_name(void)
 {
 	while (this->_name.length() == 0 && std::cin.eof() == false)
 	{
-		std::cout << "Enter your name: " << std::endl;		
+		std::cout << "Enter your name: " << std::endl;
 		std::getline(std::cin, _name);
 	}
 }

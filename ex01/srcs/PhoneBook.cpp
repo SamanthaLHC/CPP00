@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/07 17:42:07 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/08 13:12:15 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void PhoneBook::cmd_add()
 //           user's actions execution
 //==============================================================================
 
-void PhoneBook::exec_user_cmd()
+int PhoneBook::exec_user_cmd()
 {
 	if (this->_user_cmd == "ADD")
 		this->cmd_add();
@@ -66,9 +66,11 @@ void PhoneBook::exec_user_cmd()
 		std::cout << "SEARCH entered" << std::endl;
 	else if (this->_user_cmd == "EXIT" || std::cin.eof() == true)
 	{
-		std::cout << "All contacts will be lost." << std::endl;		
-		exit(0);
+		std::cout << "All contacts will be lost." << std::endl;
+		// exit(0);
+		return -1;
 	}
 	else
 		std::cout << "only ADD, SEARCH or EXIT must be typed" << std::endl;
+	return 0;
 }

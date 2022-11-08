@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:02:02 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/07 17:49:45 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/08 13:10:47 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main()
 	while (1 && std::cin.eof() == false)
 	{
 		repertoire.set_handler_input();
-		repertoire.exec_user_cmd();
+		if (repertoire.exec_user_cmd() < 0)
+			return 0;
 	}
 	return 0;
 }
