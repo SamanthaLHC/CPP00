@@ -6,13 +6,14 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/09 15:45:55 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:33:36 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 #include "PhoneBook.hpp"
-#include <stdlib.h>
+
 
 PhoneBook::PhoneBook(void): _count_user(0), _user_cmd(""){
 	return;
@@ -47,10 +48,10 @@ void PhoneBook::cmd_add()
 			this->_count_user = 0;
 
 		this->_contacts_in_rep[this->_count_user].set_name();
-		// this->_contacts_in_rep[this->_count_user].set_lastname();
-		// this->_contacts_in_rep[this->_count_user].set_surname();
-		// this->_contacts_in_rep[this->_count_user].set_phone_number();
-		// this->_contacts_in_rep[this->_count_user].set_darkest_secret();
+		this->_contacts_in_rep[this->_count_user].set_lastname();
+		this->_contacts_in_rep[this->_count_user].set_surname();
+		this->_contacts_in_rep[this->_count_user].set_phone_number();
+		this->_contacts_in_rep[this->_count_user].set_darkest_secret();
 		
 		this->_count_user++;
 }
@@ -59,10 +60,18 @@ void PhoneBook::cmd_add()
 //           cmd search
 //==============================================================================
 
-// void PhoneBook::cmd_search()
-// {
-	
-// }
+void PhoneBook::cmd_search()
+{
+		int idx_input;
+		std::cout << "Enter the contact's number you want to display:" << std::endl;
+		std::cin >> idx_input; 
+		std::cout << std::setw(10) << idx_input 
+		<< this->_contacts_in_rep[idx_input].get_name() << "|"
+		<< this->_contacts_in_rep[idx_input].get_lastname() << "|"
+		<< this->_contacts_in_rep[idx_input].get_surname() << "|"
+		<< this->_contacts_in_rep[idx_input].get_phone_number() << "|"
+		<< this->_contacts_in_rep[idx_input].get_darkest_secret() << "|" << std::endl;
+}
 
 
 //==============================================================================
@@ -77,6 +86,7 @@ int PhoneBook::exec_user_cmd()
 	{
 		std::cout << "SEARCH entered" << std::endl;
 		print_contact();
+		cmd_search();
 	}
 	else if (this->_user_cmd == "EXIT" || std::cin.eof() == true)
 	{
