@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/08 16:26:43 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:13:48 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ void PhoneBook::cmd_add()
 //           cmd search
 //==============================================================================
 
-
-
-
+void PhoneBook::cmd_search()
+{
+	
+}
 
 
 //==============================================================================
@@ -72,7 +73,10 @@ int PhoneBook::exec_user_cmd()
 	if (this->_user_cmd == "ADD")
 		this->cmd_add();
 	else if(this->_user_cmd == "SEARCH")
+	{
 		std::cout << "SEARCH entered" << std::endl;
+		print_contact();
+	}
 	else if (this->_user_cmd == "EXIT" || std::cin.eof() == true)
 	{
 		std::cout << "All contacts will be lost." << std::endl;
@@ -89,6 +93,11 @@ int PhoneBook::exec_user_cmd()
 
 void PhoneBook::print_contact()
 {
-	std::cout << this->_count_user << std::endl;
-	std::cout << this->_contacts_in_rep[this->_count_user].get_name() << std::endl;
+	while (this->_count_user < 8)
+	{
+		std::cout << this->_count_user << std::endl;
+		std::cout << this->_contacts_in_rep[this->_count_user].get_name() << std::endl;
+		std::cout << this->_contacts_in_rep[this->_count_user].get_lastname() << std::endl;
+		std::cout << this->_contacts_in_rep[this->_count_user].get_surname() << std::endl;
+	}
 }

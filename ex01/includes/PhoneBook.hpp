@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:50:52 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/08 16:16:56 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/09 11:56:16 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ private:
 	Contact _contacts_in_rep[8];
 	
 	void cmd_add();
-	void search_cmd();
-	void exit_cmd();
+	void cmd_search();
+	void cmd_exit();
 };
 
 #endif
