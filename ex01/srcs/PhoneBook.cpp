@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/09 15:32:40 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:45:55 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void PhoneBook::set_handler_input(void)
 
 void PhoneBook::cmd_add()
 {
-		if (this->_count_user == 8)
+		if (this->_count_user == 3)
 			this->_count_user = 0;
 
 		this->_contacts_in_rep[this->_count_user].set_name();
@@ -104,10 +104,7 @@ void PhoneBook::clear_contact(std::string field_contact)
 void PhoneBook::print_contact()
 {
 	for (int i = 0; i < this->_count_user; i++)
-	{
-		if (i == 8)
-			i = 0;
-			
+	{		
 		std::cout << i + 1 << this->_contacts_in_rep[i].get_name() <<
 		this->_contacts_in_rep[i].get_lastname()
 		<< this->_contacts_in_rep[i].get_surname() << std::endl;
