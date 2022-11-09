@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/09 12:13:48 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:32:40 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,26 @@ void PhoneBook::set_handler_input(void)
 
 void PhoneBook::cmd_add()
 {
-		if (this->_count_user == 7)
+		if (this->_count_user == 8)
 			this->_count_user = 0;
-		this->_count_user++;
 
 		this->_contacts_in_rep[this->_count_user].set_name();
-		this->_contacts_in_rep[this->_count_user].set_lastname();
-		this->_contacts_in_rep[this->_count_user].set_surname();
-		this->_contacts_in_rep[this->_count_user].set_phone_number();
-		this->_contacts_in_rep[this->_count_user].set_darkest_secret();
+		// this->_contacts_in_rep[this->_count_user].set_lastname();
+		// this->_contacts_in_rep[this->_count_user].set_surname();
+		// this->_contacts_in_rep[this->_count_user].set_phone_number();
+		// this->_contacts_in_rep[this->_count_user].set_darkest_secret();
+		
+		this->_count_user++;
 }
 
 //==============================================================================
 //           cmd search
 //==============================================================================
 
-void PhoneBook::cmd_search()
-{
+// void PhoneBook::cmd_search()
+// {
 	
-}
+// }
 
 
 //==============================================================================
@@ -88,16 +89,27 @@ int PhoneBook::exec_user_cmd()
 }
 
 //==============================================================================
+//          clear contact
+//==============================================================================
+
+void PhoneBook::clear_contact(std::string field_contact)
+{
+	field_contact = "";
+}
+
+//==============================================================================
 //          print contact
 //==============================================================================
 
 void PhoneBook::print_contact()
 {
-	while (this->_count_user < 8)
+	for (int i = 0; i < this->_count_user; i++)
 	{
-		std::cout << this->_count_user << std::endl;
-		std::cout << this->_contacts_in_rep[this->_count_user].get_name() << std::endl;
-		std::cout << this->_contacts_in_rep[this->_count_user].get_lastname() << std::endl;
-		std::cout << this->_contacts_in_rep[this->_count_user].get_surname() << std::endl;
+		if (i == 8)
+			i = 0;
+			
+		std::cout << i + 1 << this->_contacts_in_rep[i].get_name() <<
+		this->_contacts_in_rep[i].get_lastname()
+		<< this->_contacts_in_rep[i].get_surname() << std::endl;
 	}
 }
