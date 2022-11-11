@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/09 17:33:36 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/11 14:31:16 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ std::string PhoneBook::get_handler_input(void)const
 
 void PhoneBook::set_handler_input(void)
 {
-	std::cout << "Contact handler: you can either type ADD, SEARCH or EXIT" << std::endl;
+	std::cout << "\033[1;33mContact handler: you can either type ADD, SEARCH or EXIT\033[0m" << std::endl;
 	std::getline(std::cin, _user_cmd);
 }
 
@@ -63,16 +63,39 @@ void PhoneBook::cmd_add()
 void PhoneBook::cmd_search()
 {
 		int idx_input;
-		std::cout << "Enter the contact's number you want to display:" << std::endl;
-		std::cin >> idx_input; 
-		std::cout << std::setw(10) << idx_input 
-		<< this->_contacts_in_rep[idx_input].get_name() << "|"
-		<< this->_contacts_in_rep[idx_input].get_lastname() << "|"
-		<< this->_contacts_in_rep[idx_input].get_surname() << "|"
-		<< this->_contacts_in_rep[idx_input].get_phone_number() << "|"
-		<< this->_contacts_in_rep[idx_input].get_darkest_secret() << "|" << std::endl;
+		std::cout << "\033[1;33mEnter the contact's number you want to display:\033[0m" << std::endl;
+		std::cin >> idx_input;
+		std::cout << this->_contacts_in_rep[idx_input].get_name() << std::endl;
+		std::cout << this->_contacts_in_rep[idx_input].get_lastname() << std::endl;
+		std::cout << this->_contacts_in_rep[idx_input].get_surname() << std::endl;
+		std::cout << this->_contacts_in_rep[idx_input].get_phone_number()<< std::endl;
+		std::cout << this->_contacts_in_rep[idx_input].get_darkest_secret() << std::endl;
 }
 
+//==============================================================================
+//          print contact
+//==============================================================================
+
+void PhoneBook::print_contact()
+{
+	for (int i = 0; i < this->_count_user; i++)
+	{		
+		std::cout << std::setw(10) << i + 1 << std::setfill(' ') << "|";
+		if (this->_contacts_in_rep[i].get_name().length() > 10)
+			std::cout << "pouet pouet à resize";
+		else
+			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_name() << std::setfill(' ') << "|";
+		if (this->_contacts_in_rep[i].get_lastname().length() > 10)
+			std::cout << "pouet pouet à resize";
+		else
+			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_lastname() << std::setfill(' ') << "|";
+		if (this->_contacts_in_rep[i].get_surname().length() > 10)
+			std::cout << "pouet pouet à resize";
+		else
+			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_surname() << std::setfill(' ') << "|"
+		 << std::endl;
+	}
+}
 
 //==============================================================================
 //           user's actions execution
@@ -84,39 +107,15 @@ int PhoneBook::exec_user_cmd()
 		this->cmd_add();
 	else if(this->_user_cmd == "SEARCH")
 	{
-		std::cout << "SEARCH entered" << std::endl;
 		print_contact();
 		cmd_search();
 	}
 	else if (this->_user_cmd == "EXIT" || std::cin.eof() == true)
 	{
-		std::cout << "All contacts will be lost." << std::endl;
+		std::cout << "\033[1;33mAll contacts will be lost.\033[0m" << std::endl;
 		return -1;
 	}
 	else
-		std::cout << "only ADD, SEARCH or EXIT must be typed" << std::endl;
+		std::cout << "\033[1;31monly ADD, SEARCH or EXIT must be typed\033[0m" << std::endl;
 	return 0;
-}
-
-//==============================================================================
-//          clear contact
-//==============================================================================
-
-void PhoneBook::clear_contact(std::string field_contact)
-{
-	field_contact = "";
-}
-
-//==============================================================================
-//          print contact
-//==============================================================================
-
-void PhoneBook::print_contact()
-{
-	for (int i = 0; i < this->_count_user; i++)
-	{		
-		std::cout << i + 1 << this->_contacts_in_rep[i].get_name() <<
-		this->_contacts_in_rep[i].get_lastname()
-		<< this->_contacts_in_rep[i].get_surname() << std::endl;
-	}
 }
