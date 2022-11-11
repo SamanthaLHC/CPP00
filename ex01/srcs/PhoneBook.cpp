@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/11 16:58:06 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/11 18:06:36 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,15 @@ void PhoneBook::cmd_search()
 		std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
 		std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
 }
+//==============================================================================
+//          troncate str
+//==============================================================================
+
+void PhoneBook::troncate_and_print_str(std::string field)
+{
+	field.resize(9);
+	std::cout << std::setw(10) << field +"." << "|";
+}
 
 //==============================================================================
 //          print contact
@@ -83,15 +92,18 @@ void PhoneBook::print_contact()
 	{		
 		std::cout << std::setw(10) << i + 1 << std::setfill(' ') << "|";
 		if (this->_contacts_in_rep[i].get_name().length() > 10)
-			std::cout << "à resize";
+			troncate_and_print_str(this->_contacts_in_rep[i].get_name());
 		else
 			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_name() << std::setfill(' ') << "|";
 		if (this->_contacts_in_rep[i].get_lastname().length() > 10)
-			std::cout << "à resize";
+			troncate_and_print_str(this->_contacts_in_rep[i].get_lastname());
 		else
 			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_lastname() << std::setfill(' ') << "|";
 		if (this->_contacts_in_rep[i].get_surname().length() > 10)
-			std::cout << "à resize";
+		{
+			troncate_and_print_str(this->_contacts_in_rep[i].get_surname());
+			std::cout << std::endl;
+		}
 		else
 			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_surname() << std::setfill(' ') << "|"
 		 << std::endl;

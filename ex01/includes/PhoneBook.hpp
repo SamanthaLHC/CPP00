@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:50:52 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/09 14:45:17 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:53:10 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ private:
 	void cmd_add();
 	void cmd_search();
 	void cmd_exit();
-	void clear_contact(std::string field_contact);
+	void troncate_and_print_str(std::string field);
 };
 
 #endif
