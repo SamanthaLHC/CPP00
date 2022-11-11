@@ -6,12 +6,13 @@
 /*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/11 21:08:37 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/11 21:27:56 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
+#include <ctype.h>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : _count_user(0), _user_cmd("")
@@ -62,11 +63,7 @@ void PhoneBook::cmd_add()
 //==============================================================================
 int PhoneBook::check_index_input(int idx)
 {
-	
-	// check only one digit
-	// included in the range of the contact array (user count) (attention au - 1 ou + 1)
-	// space ? not space ?
-	return 0;
+	// regarder le comportement de cin quand le type rentre n est pas celui attendu
 }
 
 //==============================================================================
