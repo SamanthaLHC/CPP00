@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/11 14:31:16 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/11 16:58:06 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,12 @@ void PhoneBook::cmd_search()
 		int idx_input;
 		std::cout << "\033[1;33mEnter the contact's number you want to display:\033[0m" << std::endl;
 		std::cin >> idx_input;
-		std::cout << this->_contacts_in_rep[idx_input].get_name() << std::endl;
-		std::cout << this->_contacts_in_rep[idx_input].get_lastname() << std::endl;
-		std::cout << this->_contacts_in_rep[idx_input].get_surname() << std::endl;
-		std::cout << this->_contacts_in_rep[idx_input].get_phone_number()<< std::endl;
-		std::cout << this->_contacts_in_rep[idx_input].get_darkest_secret() << std::endl;
+		std::cin.ignore();
+		std::cout << this->_contacts_in_rep[idx_input - 1].get_name() << std::endl;
+		std::cout << this->_contacts_in_rep[idx_input - 1].get_lastname() << std::endl;
+		std::cout << this->_contacts_in_rep[idx_input - 1].get_surname() << std::endl;
+		std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
+		std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
 }
 
 //==============================================================================
@@ -82,15 +83,15 @@ void PhoneBook::print_contact()
 	{		
 		std::cout << std::setw(10) << i + 1 << std::setfill(' ') << "|";
 		if (this->_contacts_in_rep[i].get_name().length() > 10)
-			std::cout << "pouet pouet à resize";
+			std::cout << "à resize";
 		else
 			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_name() << std::setfill(' ') << "|";
 		if (this->_contacts_in_rep[i].get_lastname().length() > 10)
-			std::cout << "pouet pouet à resize";
+			std::cout << "à resize";
 		else
 			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_lastname() << std::setfill(' ') << "|";
 		if (this->_contacts_in_rep[i].get_surname().length() > 10)
-			std::cout << "pouet pouet à resize";
+			std::cout << "à resize";
 		else
 			std::cout << std::setw(10) << this->_contacts_in_rep[i].get_surname() << std::setfill(' ') << "|"
 		 << std::endl;
