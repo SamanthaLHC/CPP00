@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/12 19:14:56 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/12 21:05:08 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iomanip>
 #include <ctype.h>
 #include <limits>
+#include <stdlib.h>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : _count_user(0), _user_cmd("")
@@ -64,17 +65,8 @@ void PhoneBook::cmd_add()
 //==============================================================================
 int PhoneBook::check_index_input(int idx)
 {
-	std::cout << "i am rentring in the fonction check" << std::endl;
 	if (idx >= 1 && idx <= this->_count_user)
-	{
-		std::cout << "i am checking idx" << std::endl;
 		return 1;
-	}
-	if (std::cin.rdstate() == std::cin.failbit)
-	{
-		std::cout << "que fais je" << std::endl;
-		return -1;
-	}
 	return -1;
 }
 
@@ -82,29 +74,29 @@ int PhoneBook::check_index_input(int idx)
 //           cmd search
 //==============================================================================
 
-void PhoneBook::cmd_search()
+int PhoneBook::cmd_search()
 {
 	int idx_input = 0;
 
 	std::cout << "\033[1;34mEnter the contact's number you want to display:\033[0m" << std::endl;
-			std::cerr << "EXEC_SEARCH good="<< std::cin.good()
-			  << ", eof=" << std::cin.eof()
-			  << ", fail=" << std::cin.fail()
-			  << ", bad=" << std::cin.bad() << std::endl;
 	std::cin >> idx_input;
-			std::cerr << "EXEC_SEARCH good="<< std::cin.good()
-			  << ", eof=" << std::cin.eof()
-			  << ", fail=" << std::cin.fail()
-			  << ", bad=" << std::cin.bad() << std::endl;
+	if (std::cin.good() == false)
+	{
+		std::cin.clear();
+		std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
+		std::cin.ignore();
+		return -1;
+	}
 	std::cin.ignore();
 	if (check_index_input(idx_input) < 0)
 	{
 		std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
+		return 0;
 	}
 	else if (std::cin.eof() == true)
 	{
 		std::cout << "\033[1;33mAll contacts are lost.\033[0m" << std::endl;
-		return;
+		return -1;
 	}
 	else
 	{
@@ -113,7 +105,9 @@ void PhoneBook::cmd_search()
 		std::cout << this->_contacts_in_rep[idx_input - 1].get_surname() << std::endl;
 		std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
 		std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
+		return 0;
 	}
+	return 0;
 }
 //==============================================================================
 //          troncate str
@@ -165,8 +159,8 @@ int PhoneBook::exec_user_cmd()
 	else if (this->_user_cmd == "SEARCH")
 	{
 		print_contact();
-		cmd_search();
-
+		if (cmd_search() < 0)
+			std::cin.ignore();
 	}
 	else if (this->_user_cmd == "EXIT" || std::cin.eof() == true)
 	{
