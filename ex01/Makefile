@@ -6,7 +6,7 @@
 #    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/12 14:06:22 by sam              ###   ########.fr        #
+#    Updated: 2022/11/12 14:07:35 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ bin: re $(NAME)
 test:
 	./tester_working_display.sh
 
-badt: 
+badt: $(NAME) 
 	./tester_bad_input.sh
 
 badi: 

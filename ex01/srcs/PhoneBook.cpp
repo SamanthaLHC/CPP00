@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/12 13:57:38 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/12 14:31:44 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,15 @@ void PhoneBook::cmd_search()
 	int idx_input = 0;
 
 	std::cout << "\033[1;34mEnter the contact's number you want to display:\033[0m" << std::endl;
+			std::cerr << "EXEC_SEARCH good="<< std::cin.good()
+			  << ", eof=" << std::cin.eof()
+			  << ", fail=" << std::cin.fail()
+			  << ", bad=" << std::cin.bad() << std::endl;
 	std::cin >> idx_input;
+			std::cerr << "EXEC_SEARCH good="<< std::cin.good()
+			  << ", eof=" << std::cin.eof()
+			  << ", fail=" << std::cin.fail()
+			  << ", bad=" << std::cin.bad() << std::endl;
 	std::cin.ignore();
 	if (check_index_input(idx_input) < 0)
 	{
