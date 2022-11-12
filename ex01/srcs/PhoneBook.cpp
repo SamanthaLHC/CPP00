@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/12 21:05:08 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/12 21:17:55 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,10 @@ int PhoneBook::cmd_search()
 	std::cin >> idx_input;
 	if (std::cin.good() == false)
 	{
-		std::cin.clear();
-		std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
+		std::cout << "je rentre ds la fonction goodbit == false" << std::endl;
 		std::cin.ignore();
+		std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
+		std::cin.clear();
 		return -1;
 	}
 	std::cin.ignore();
@@ -96,6 +97,7 @@ int PhoneBook::cmd_search()
 	else if (std::cin.eof() == true)
 	{
 		std::cout << "\033[1;33mAll contacts are lost.\033[0m" << std::endl;
+		std::cin.ignore();
 		return -1;
 	}
 	else
