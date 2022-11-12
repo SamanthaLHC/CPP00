@@ -6,13 +6,14 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/12 12:30:01 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/12 13:57:38 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include <ctype.h>
+#include <limits>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : _count_user(0), _user_cmd("")
@@ -69,6 +70,11 @@ int PhoneBook::check_index_input(int idx)
 		std::cout << "i am checking idx" << std::endl;
 		return 1;
 	}
+	if (std::cin.rdstate() == std::cin.failbit)
+	{
+		std::cout << "que fais je" << std::endl;
+		return -1;
+	}
 	return -1;
 }
 
@@ -79,11 +85,10 @@ int PhoneBook::check_index_input(int idx)
 void PhoneBook::cmd_search()
 {
 	int idx_input = 0;
+
 	std::cout << "\033[1;34mEnter the contact's number you want to display:\033[0m" << std::endl;
 	std::cin >> idx_input;
-	std::cout << "input inputé next step: cin ignore" << std::endl;
 	std::cin.ignore();
-	std::cout << "cin ignore done, next step: check idx" << std::endl;
 	if (check_index_input(idx_input) < 0)
 	{
 		std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
@@ -153,6 +158,7 @@ int PhoneBook::exec_user_cmd()
 	{
 		print_contact();
 		cmd_search();
+
 	}
 	else if (this->_user_cmd == "EXIT" || std::cin.eof() == true)
 	{

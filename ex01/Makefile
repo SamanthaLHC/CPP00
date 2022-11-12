@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
+#    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/07 16:59:01 by sle-huec         ###   ########.fr        #
+#    Updated: 2022/11/12 14:06:22 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,16 @@ re: fclean
 grind: ${NAME}
 		valgrind ./$(NAME)
 
-test: $(NAME)
+bin: re $(NAME)
 	./$(NAME)
+
+test:
+	./tester_working_display.sh
+
+badt: 
+	./tester_bad_input.sh
+
+badi: 
+	./tester_bad_idx.sh 
 
 .PHONY: clean fclean re grind test
