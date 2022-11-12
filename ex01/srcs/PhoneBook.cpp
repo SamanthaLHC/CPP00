@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/12 12:05:06 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/12 12:30:01 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,13 @@ void PhoneBook::cmd_add()
 //==============================================================================
 int PhoneBook::check_index_input(int idx)
 {
+	std::cout << "i am rentring in the fonction check" << std::endl;
 	if (idx >= 1 && idx <= this->_count_user)
+	{
+		std::cout << "i am checking idx" << std::endl;
 		return 1;
+	}
+	return -1;
 }
 
 //==============================================================================
@@ -73,10 +78,12 @@ int PhoneBook::check_index_input(int idx)
 
 void PhoneBook::cmd_search()
 {
-	int idx_input;
+	int idx_input = 0;
 	std::cout << "\033[1;34mEnter the contact's number you want to display:\033[0m" << std::endl;
 	std::cin >> idx_input;
+	std::cout << "input inputé next step: cin ignore" << std::endl;
 	std::cin.ignore();
+	std::cout << "cin ignore done, next step: check idx" << std::endl;
 	if (check_index_input(idx_input) < 0)
 	{
 		std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
