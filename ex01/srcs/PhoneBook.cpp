@@ -6,7 +6,7 @@
 /*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/11 21:27:56 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/12 12:05:06 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void PhoneBook::cmd_add()
 //==============================================================================
 int PhoneBook::check_index_input(int idx)
 {
-	// regarder le comportement de cin quand le type rentre n est pas celui attendu
+	if (idx >= 1 && idx <= this->_count_user)
+		return 1;
 }
 
 //==============================================================================
