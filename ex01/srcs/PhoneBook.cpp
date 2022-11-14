@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/14 11:27:20 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/14 13:03:46 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,35 +78,40 @@ int PhoneBook::cmd_search()
 {
 	int idx_input = 0;
 
-	std::cout << "\033[1;34mEnter the contact's number you want to display:\033[0m" << std::endl;
-	std::cin >> idx_input;
-	if (std::cin.good() == false)
+	while (idx_input == 0)
 	{
+		std::cout << "\033[1;34mEnter the contact's number you want to display:\033[0m" << std::endl;
+		std::cin >> idx_input;
+		if (std::cin.eof() == true)
+		{
+			std::cout << "\033[1;33mAll contacts are lost.\033[0m" << std::endl;
+			return -1;
+		}
+		else if (std::cin.good() == false)
+		{
+			std::cin.clear();
+			idx_input = 0;
+			std::string trash;
+			std::cin >> trash;
+			std::cout << "\033[1;31mBad input: only enter a DIGIT included in the range.\033[0m" << std::endl;
+			continue;
+		}
 		std::cin.ignore();
-		std::cin.clear();
-		std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
-		return -1;
-	}
-	std::cin.ignore();
-	if (check_index_input(idx_input) < 0)
-	{
-		std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
-		return 0;
-	}
-	else if (std::cin.eof() == true)
-	{
-		std::cout << "\033[1;33mAll contacts are lost.\033[0m" << std::endl;
-		std::cin.ignore();
-		return -1;
-	}
-	else
-	{
-		std::cout << this->_contacts_in_rep[idx_input - 1].get_name() << std::endl;
-		std::cout << this->_contacts_in_rep[idx_input - 1].get_lastname() << std::endl;
-		std::cout << this->_contacts_in_rep[idx_input - 1].get_surname() << std::endl;
-		std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
-		std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
-		return 0;
+		if (check_index_input(idx_input) < 0)
+		{
+			idx_input = 0;
+			std::cout << "\033[1;31mBad input: only enter a number included in the range.\033[0m" << std::endl;
+			continue;
+		}
+		else
+		{
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_name() << std::endl;
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_lastname() << std::endl;
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_surname() << std::endl;
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
+			return 0;
+		}
 	}
 	return 0;
 }
