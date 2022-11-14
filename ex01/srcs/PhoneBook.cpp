@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/14 13:03:46 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/14 14:41:07 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,12 +164,17 @@ int PhoneBook::exec_user_cmd()
 		this->cmd_add();
 	else if (this->_user_cmd == "SEARCH")
 	{
-		print_contact();
-		if (cmd_search() < 0)
+		if (this->_count_user > 0)
 		{
-			std::cin.ignore();
-			return -1;
+			print_contact();
+			if (cmd_search() < 0)
+			{
+				std::cin.ignore();
+				return -1;
+			}
 		}
+		else
+			std::cout << "\033[1;34mNo entries in the phonebook. You should enter ADD and fill the fields.\033[0m" << std::endl;
 	}
 	else if (this->_user_cmd == "EXIT" || std::cin.eof() == true)
 	{
