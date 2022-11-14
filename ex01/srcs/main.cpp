@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 14:02:02 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/12 13:53:39 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/14 11:36:48 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main()
 	{
 		repertoire.set_handler_input();
 		if (repertoire.exec_user_cmd() < 0)
-			return 0;
+			std::cin.ignore(100000, '\n');
 	}
 	return 0;
 }
