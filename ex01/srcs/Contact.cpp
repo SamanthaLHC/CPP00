@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:19:10 by sle-huec          #+#    #+#             */
-/*   Updated: 2022/11/11 14:33:10 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:52:40 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <string>
 #include <iostream>
-
-// faire une methode qui prend une string en entrée et d afficher le message 
-// qui va avec linput et d'apppeler le bon setter? 
 
 Contact::Contact(void) : _name(""), _lastname(""), _surname(""), _phone_number(""),
 						_dark_secret("") {

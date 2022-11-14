@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/14 15:06:21 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/14 16:49:58 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void) : _count_user(0), _user_cmd("")
+PhoneBook::PhoneBook(void) : _count_user(0), _user_cmd(""), _flag_max(0)
 {
 	return;
 }
@@ -48,14 +48,17 @@ void PhoneBook::set_handler_input(void)
 
 void PhoneBook::cmd_add()
 {
-	if (this->_count_user == 3)
+	if (this->_count_user == 8)
+	{
+		this->_flag_max = 1;
 		this->_count_user = 0;
+	}
 
 	this->_contacts_in_rep[this->_count_user].set_name();
-	// this->_contacts_in_rep[this->_count_user].set_lastname();
-	// this->_contacts_in_rep[this->_count_user].set_surname();
-	// this->_contacts_in_rep[this->_count_user].set_phone_number();
-	// this->_contacts_in_rep[this->_count_user].set_darkest_secret();
+	this->_contacts_in_rep[this->_count_user].set_lastname();
+	this->_contacts_in_rep[this->_count_user].set_surname();
+	this->_contacts_in_rep[this->_count_user].set_phone_number();
+	this->_contacts_in_rep[this->_count_user].set_darkest_secret();
 
 	this->_count_user++;
 }
@@ -65,7 +68,12 @@ void PhoneBook::cmd_add()
 //==============================================================================
 int PhoneBook::check_index_input(int idx)
 {
-	if (idx >= 1 && idx <= this->_count_user)
+	int max = 0;
+	if (this->_flag_max == 0)
+		max = this->_count_user;
+	else
+		max = 8;
+	if (idx >= 1 && idx <= max)
 		return 1;
 	return -1;
 }
@@ -106,10 +114,10 @@ int PhoneBook::cmd_search()
 		else
 		{
 			std::cout << this->_contacts_in_rep[idx_input - 1].get_name() << std::endl;
-			// std::cout << this->_contacts_in_rep[idx_input - 1].get_lastname() << std::endl;
-			// std::cout << this->_contacts_in_rep[idx_input - 1].get_surname() << std::endl;
-			// std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
-			// std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_lastname() << std::endl;
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_surname() << std::endl;
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
+			std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
 			return 0;
 		}
 	}
@@ -132,7 +140,13 @@ void PhoneBook::troncate_and_print_str(std::string field)
 
 void PhoneBook::print_contact()
 {
-	for (int i = 0; i < this->_count_user; i++)
+	int max = 0;
+	if (this->_flag_max == 0)
+		max = this->_count_user;
+	else
+		max = 8;
+
+	for (int i = 0; i < max; i++)
 	{
 		std::cout << std::setw(10) << i + 1 << std::setfill(' ') << "|";
 		if (this->_contacts_in_rep[i].get_name().length() > 10)

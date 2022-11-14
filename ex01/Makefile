@@ -6,7 +6,7 @@
 #    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/14 14:53:59 by sam              ###   ########.fr        #
+#    Updated: 2022/11/14 15:38:11 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,5 +66,8 @@ badi: $(NAME)
 
 maxt: $(NAME)
 	./tester_max_entries.sh
+
+db: re $(NAME)
+	lldb ./phonebook
 
 .PHONY: clean fclean re grind test
