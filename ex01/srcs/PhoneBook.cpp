@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:39:26 by samantha          #+#    #+#             */
-/*   Updated: 2022/11/14 14:41:07 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/14 15:06:21 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void PhoneBook::cmd_add()
 		this->_count_user = 0;
 
 	this->_contacts_in_rep[this->_count_user].set_name();
-	this->_contacts_in_rep[this->_count_user].set_lastname();
-	this->_contacts_in_rep[this->_count_user].set_surname();
-	this->_contacts_in_rep[this->_count_user].set_phone_number();
-	this->_contacts_in_rep[this->_count_user].set_darkest_secret();
+	// this->_contacts_in_rep[this->_count_user].set_lastname();
+	// this->_contacts_in_rep[this->_count_user].set_surname();
+	// this->_contacts_in_rep[this->_count_user].set_phone_number();
+	// this->_contacts_in_rep[this->_count_user].set_darkest_secret();
 
 	this->_count_user++;
 }
@@ -106,10 +106,10 @@ int PhoneBook::cmd_search()
 		else
 		{
 			std::cout << this->_contacts_in_rep[idx_input - 1].get_name() << std::endl;
-			std::cout << this->_contacts_in_rep[idx_input - 1].get_lastname() << std::endl;
-			std::cout << this->_contacts_in_rep[idx_input - 1].get_surname() << std::endl;
-			std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
-			std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
+			// std::cout << this->_contacts_in_rep[idx_input - 1].get_lastname() << std::endl;
+			// std::cout << this->_contacts_in_rep[idx_input - 1].get_surname() << std::endl;
+			// std::cout << this->_contacts_in_rep[idx_input - 1].get_phone_number() << std::endl;
+			// std::cout << this->_contacts_in_rep[idx_input - 1].get_darkest_secret() << std::endl;
 			return 0;
 		}
 	}

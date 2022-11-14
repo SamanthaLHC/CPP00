@@ -6,7 +6,7 @@
 #    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 12:06:01 by sle-huec          #+#    #+#              #
-#    Updated: 2022/11/12 14:07:35 by sam              ###   ########.fr        #
+#    Updated: 2022/11/14 14:53:59 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,13 +55,16 @@ grind: ${NAME}
 bin: re $(NAME)
 	./$(NAME)
 
-test:
+test: $(NAME)
 	./tester_working_display.sh
 
 badt: $(NAME) 
 	./tester_bad_input.sh
 
-badi: 
-	./tester_bad_idx.sh 
+badi: $(NAME)
+	./tester_bad_idx.sh
+
+maxt: $(NAME)
+	./tester_max_entries.sh
 
 .PHONY: clean fclean re grind test
